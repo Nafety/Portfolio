@@ -1,0 +1,75 @@
+{
+    "basics": {
+        "name": "BARSOT Thomas",
+        "label": "Informatics Student",
+        "email": "thomas.barsot@insa-rouen.fr",
+        "phone": "(XXX) XXX-XXXX",
+        "picture": "mt.png",
+        "x_title": "Hello, I'm",
+        "job1": "Computer Engineering",
+        "job2": "Student",
+        "description": "Hello! I'm Thomas !", 
+        "summary": "based in Rouen, France.",
+        "keywords": "personal,website,portfolio,webdev,machine,thomas,sciences,developer,react,github,linkedin",
+        "url": "https://portfolio.nafety.online/",
+        "location": {
+            "address": "XX XXXXXstreet",
+            "postalCode": "XXXXX",
+            "city": "Rouen",
+            "country": "France",
+            "countryCode": "FR",
+            "region": "Normandy"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "thomas-barsot",
+                "url": "https://www.linkedin.com/in/thomas-barsot/",
+                "x_icon": "fab fa-linkedin-in"
+            },
+            {
+                "network": "GitHub",
+                "username": "nafety",
+                "url": "https://github.com/Nafety",
+                "x_icon": "fab fa-github"
+            },
+            {
+                "network": "Discord",
+                "username": "Nafety##9742",
+                "url": "https://discord.com",
+                "x_icon": "fab fa-discord"
+            }
+        ]
+    },
+    "work": [
+    ],
+    "volunteer": [
+    ],
+    "education": [
+    ],
+    "awards": [
+    ],
+    "publications": [
+
+    ],
+    "skills": [
+    ],
+    "languages": [
+        {
+            "language": "Spanish",
+            "fluency": "Good speaker"
+        },
+        {
+            "language": "English",
+            "fluency": "Fluent speaker"
+        },
+        {
+            "language": "French",
+            "fluency": "Native knowledge"
+        }
+    ],
+    "interests": [
+    ],
+    "references": [
+    ]
+}
