@@ -6,6 +6,6 @@
 
 .line {
   width: 60%; /* largeur du trait */
-  border-bottom: 3px solid rgba(223, 223, 223, 0.603); /* gris clair et un peu transparent */
+  border-bottom: 3px solid rgba(223, 223, 223, 0.3); /* gris clair et un peu transparent */
   transition: all 0.3s ease; /* smooth transition si besoin */
 }

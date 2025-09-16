@@ -29,6 +29,7 @@
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.51);
+  padding: 2rem; /* 🔥 ajout du padding */
 }
 .title {
   font-size: 1.5rem;
@@ -52,11 +53,13 @@
     margin-left: 4em;
     margin-right: 4em;
     flex-direction: column;
+    
   }
   .__img_wrapper {
     width: 340px;
   }
   .__content_wrapper {
     width: 70%;
+    padding: 1.5rem; /* un peu moins sur mobile */
   }
 }

@@ -11,7 +11,6 @@ import './Projects.css';
 // Import ../../assets/recentprojects/
 import Portfolio from '../../assets/projects/Portfolio.png';
 import DiscordBot from '../../assets/projects/Discord.png';
-import RLBot from '../../assets/projects/Discord.png';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -47,7 +46,7 @@ export const Projects = () => {
       optimized performance to showcase projects and experiences.`,
       alter: 'Portfolio Website',
       image: `${Portfolio}`,
-      ghLink: "https://github.com/tonprofil/portfolio",
+      ghLink: "https://github.com/Nafety/Portfolio",
       demoLink: "https://portfolio.nafety.online",
       download: false,
     },
@@ -63,19 +62,6 @@ export const Projects = () => {
       ghLink: "https://github.com/Nafety/Discord-bot",
       demoLink: "https://discord.com/oauth2/authorize?client_id=1112406883278532619",
       download: true,
-    },
-    { 
-      id: 3,
-      title: 'Rocket League Bot', 
-      description: `Developed a Rocket League bot using RLBot and 
-      reinforcement learning techniques. Implemented training loops, 
-      reward functions, and evaluation metrics to improve in-game 
-      decision-making and strategy, with leaderboard tracking.`,
-      alter: 'Rocket League Bot',
-      image: `${RLBot}`,
-      ghLink: "https://github.com/tonprofil/rocket-league-bot",
-      demoLink: "https://portfolio.nafety.online",
-      download: true, // exemple pour un fichier téléchargeable
     },
   ]);
 
