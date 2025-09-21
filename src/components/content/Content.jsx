@@ -7,19 +7,42 @@ import { FirstName, LastName } from "../../utils/getName";
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    maxWidth: '100vw',
+    maxWidth: "100vw",
     marginTop: "auto",
     marginBottom: "auto",
+
+    // 🔹 espace pour sidebar et logos
+    paddingLeft: "15rem",
+    paddingRight: "6rem",
+
+    [theme.breakpoints.down("md")]: {
+      paddingLeft: "4rem",
+      paddingRight: "4rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "2rem",
+      paddingRight: "2rem",
+    },
   },
   heading: {
-    marginLeft: theme.spacing(50),
-    "@media (max-width: 768px)": {
-      marginLeft: theme.spacing(10),
+    textAlign: "left", // aligné à gauche par défaut
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center", // centré sur mobile
+    },
+  },
+  name: {
+    fontSize: "clamp(1.5rem, 2vw, 2.5rem)", // plus petit sur mobile
+    fontWeight: 500,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "clamp(1.2rem, 4vw, 1.8rem)", // mobile encore plus petit
     },
   },
   jobs: {
-    "@media (max-width: 768px)": {
-      fontSize: '3rem',
+    fontWeight: 700,
+    lineHeight: 1.2,
+    fontSize: "clamp(2.5rem, 6vw, 6rem)",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "clamp(1.8rem, 5vw, 3rem)", // mobile plus petit
     },
   },
 }));
@@ -28,14 +51,14 @@ export const Content = () => {
   const classes = useStyles();
 
   return (
-    <Container component="main" className={classes.main} maxWidth="md">
+    <Container component="main" className={classes.main} maxWidth="xl">
       <div className={classes.heading}>
-        <Typography variant="h5" component="h2">
-            <TextDecrypt text={`${FirstName} ${LastName}`} />
+        <Typography component="h2" className={classes.name}>
+          <TextDecrypt text={`${FirstName} ${LastName}`} />
         </Typography>
-        <Typography variant="h1" component="h1" className={classes.jobs}>
-            <TextDecrypt text={`${Resume.basics.job1} `} />
-            <TextDecrypt text={`${Resume.basics.job2}`} />
+        <Typography component="h1" className={classes.jobs}>
+          <TextDecrypt text={`${Resume.basics.job1} `} />
+          <TextDecrypt text={`${Resume.basics.job2}`} />
         </Typography>
       </div>
     </Container>

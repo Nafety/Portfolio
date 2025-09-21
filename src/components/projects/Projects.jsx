@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
   iconButton: {
     height: '2.5rem',
     width: '5rem',
-    display: 'block', // ne bloque pas le layout
+    display: 'block',
   },
   icon: {
-    fontSize: '1.25rem', // couleur selon thème
+    fontSize: '1.25rem',
   },
   buttonsWrapper: {
     marginTop: theme.spacing(2),
@@ -32,11 +32,30 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     gap: theme.spacing(2),
     flexWrap: 'wrap',
+    justifyContent: 'center',
   },
+  seeMoreBtn: { 
+    marginTop: theme.spacing(1), 
+    cursor: 'pointer', 
+    color: theme.palette.primary.main, 
+    border: 'none', 
+    background: 'none', 
+    padding: 0, 
+    fontWeight: 'bold',
+    alignSelf: 'center'
+  }
 }));
 
 export const Projects = () => {
   const classes = useStyles();
+  const [expandedIds, setExpandedIds] = useState([]);
+
+  const toggleExpand = (id) => {
+    setExpandedIds(prev =>
+      prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
+    );
+  };
+
   const [projects] = useState([
     { 
       id: 1,
@@ -68,46 +87,67 @@ export const Projects = () => {
   return (
     <section id="projects">
       <Container component="main" className={classes.main} maxWidth="md">
-        {projects.map((project) => (
-          <div className="project" key={project.id}>
-            <div className="__img_wrapper">
-              <img src={project.image} alt={project.alter} />
-            </div>
-            <div className="__content_wrapper">
-              <h3 className="title">
-                <TextDecrypt text={project.id + '. ' + project.title} />
-              </h3>
-              <p className="description">{project.description}</p>
+        {projects.map((project) => {
+          const isExpanded = expandedIds.includes(project.id);
 
-              {/* Boutons GitHub et Demo/Download */}
-              <div className={classes.buttonsWrapper}>
-                {project.ghLink && (
-                  <Link href={project.ghLink} target="_blank" rel="noopener noreferrer" underline="none">
-                    <Tooltip title="GitHub Repository" placement="top" TransitionComponent={Zoom}>
-                      <IconButton className={classes.iconButton}>
-                        <BsGithub className={classes.icon} />
-                      </IconButton>
-                    </Tooltip>
-                  </Link>
+          return (
+            <div className="project" key={project.id}>
+              <div className="__img_wrapper">
+                <img src={project.image} alt={project.alter} />
+              </div>
+              <div className="__content_wrapper">
+                <h3 className="title">
+                  <TextDecrypt text={project.id + '. ' + project.title} />
+                </h3>
+
+                {isExpanded && (
+                  <p className="description expanded">
+                    {project.description}
+                  </p>
                 )}
 
-                {project.demoLink && (
-                  <Link href={project.demoLink} target="_blank" rel="noopener noreferrer" underline="none" download={project.download}>
-                    <Tooltip 
-                      title={project.download ? "Download Link" : "Live Demo"} 
-                      placement="top" 
-                      TransitionComponent={Zoom}
+                <button
+                  className={classes.seeMoreBtn}
+                  onClick={() => toggleExpand(project.id)}
+                >
+                  {isExpanded ? 'Voir moins' : 'Voir plus'}
+                </button>
+
+                <div className={classes.buttonsWrapper}>
+                  {project.ghLink && (
+                    <Link href={project.ghLink} target="_blank" rel="noopener noreferrer" underline="none">
+                      <Tooltip title="GitHub Repository" placement="top" TransitionComponent={Zoom}>
+                        <IconButton className={classes.iconButton}>
+                          <BsGithub className={classes.icon} />
+                        </IconButton>
+                      </Tooltip>
+                    </Link>
+                  )}
+
+                  {project.demoLink && (
+                    <Link
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="none"
+                      download={project.download}
                     >
-                      <IconButton className={classes.iconButton}>
-                        <CgWebsite className={classes.icon} />
-                      </IconButton>
-                    </Tooltip>
-                  </Link>
-                )}
+                      <Tooltip 
+                        title={project.download ? "Download Link" : "Live Demo"} 
+                        placement="top" 
+                        TransitionComponent={Zoom}
+                      >
+                        <IconButton className={classes.iconButton}>
+                          <CgWebsite className={classes.icon} />
+                        </IconButton>
+                      </Tooltip>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </Container>
     </section>
   );
