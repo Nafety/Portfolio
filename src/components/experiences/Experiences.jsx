@@ -53,7 +53,7 @@ export const Experiences = () => {
       description: `Internship focused on object detection within the A2RL autonomous racing project. Developed an automatic annotation module for Autonoma Simulator datasets, then designed and trained deep learning models for object detection. Integrated the detection pipeline into the dedicated software RTMaps, and contributed to real-world testing during track trials in Abu Dhabi.`,
       alter: 'A2RL Internship - Aladin',
       image: `${A2RL}`,
-      ghLink: "https://github.com/Nafety/A2RL_Stage",
+      ghLink: null,
       demoLink: null,
       reportLink: A2RL_Report, 
       download: false,
