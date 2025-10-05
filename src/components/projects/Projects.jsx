@@ -8,7 +8,6 @@ import { CgWebsite } from "react-icons/cg";
 
 import './Projects.css';
 
-// Import ../../assets/recentprojects/
 import Portfolio from '../../assets/projects/Portfolio.png';
 import DiscordBot from '../../assets/projects/Discord.png';
 
@@ -35,15 +34,19 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   seeMoreBtn: { 
-    marginTop: theme.spacing(1), 
-    cursor: 'pointer', 
-    color: theme.palette.primary.main, 
-    border: 'none', 
-    background: 'none', 
-    padding: 0, 
+    marginTop: theme.spacing(1),
+    cursor: 'pointer',
+    color: theme.palette.text.primary, // 🟢 couleur dépend du thème (clair/sombre)
+    border: 'none',
+    background: 'none',
+    padding: 0,
     fontWeight: 'bold',
-    alignSelf: 'center'
-  }
+    alignSelf: 'center',
+    transition: 'color 0.3s ease',
+    '&:hover': {
+      color: theme.palette.primary.main, // 🟢 passe à la couleur principale du thème
+    },
+  },
 }));
 
 export const Projects = () => {
@@ -51,33 +54,33 @@ export const Projects = () => {
   const [expandedIds, setExpandedIds] = useState([]);
 
   const toggleExpand = (id) => {
-    setExpandedIds(prev =>
-      prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
+    setExpandedIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
     );
   };
 
   const [projects] = useState([
     { 
       id: 1,
-      title: 'Portfolio Website', 
+      title: 'Portfolio Website',
       description: `Designed and developed a modern portfolio website 
       using Vite and ReactJS, with smooth animations and 
       optimized performance to showcase projects and experiences.`,
       alter: 'Portfolio Website',
-      image: `${Portfolio}`,
+      image: Portfolio,
       ghLink: "https://github.com/Nafety/Portfolio",
       demoLink: "https://portfolio.nafety.online",
       download: false,
     },
     { 
       id: 2,
-      title: 'Discord Bot', 
+      title: 'Discord Bot',
       description: `Created a feature-rich Discord bot including an 
       in-server economy system, tradable items with a stock-market-like 
       value, leaderboards, music playback, and entertainment commands 
       for community engagement.`,
       alter: 'Discord Bot',
-      image: `${DiscordBot}`,
+      image: DiscordBot,
       ghLink: "https://github.com/Nafety/Discord-bot",
       demoLink: "https://discord.com/oauth2/authorize?client_id=1112406883278532619",
       download: true,
@@ -97,7 +100,7 @@ export const Projects = () => {
               </div>
               <div className="__content_wrapper">
                 <h3 className="title">
-                  <TextDecrypt text={project.id + '. ' + project.title} />
+                  <TextDecrypt text={`${project.id}. ${project.title}`} />
                 </h3>
 
                 {isExpanded && (
@@ -115,8 +118,17 @@ export const Projects = () => {
 
                 <div className={classes.buttonsWrapper}>
                   {project.ghLink && (
-                    <Link href={project.ghLink} target="_blank" rel="noopener noreferrer" underline="none">
-                      <Tooltip title="GitHub Repository" placement="top" TransitionComponent={Zoom}>
+                    <Link
+                      href={project.ghLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="none"
+                    >
+                      <Tooltip
+                        title="GitHub Repository"
+                        placement="top"
+                        TransitionComponent={Zoom}
+                      >
                         <IconButton className={classes.iconButton}>
                           <BsGithub className={classes.icon} />
                         </IconButton>
@@ -132,9 +144,9 @@ export const Projects = () => {
                       underline="none"
                       download={project.download}
                     >
-                      <Tooltip 
-                        title={project.download ? "Download Link" : "Live Demo"} 
-                        placement="top" 
+                      <Tooltip
+                        title={project.download ? "Download Link" : "Live Demo"}
+                        placement="top"
                         TransitionComponent={Zoom}
                       >
                         <IconButton className={classes.iconButton}>

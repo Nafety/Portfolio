@@ -13,11 +13,18 @@ import { Projects } from '../components/projects/Projects';
 import { About } from '../components/about/About';
 import { Contact } from '../components/contact/Contact';
 import { Line } from '../components/line/Line';
+
 const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
+  },
+  lineWrapper: {
+    display: 'flex',
+    justifyContent: 'center', // centre horizontalement
+    margin: '2rem 0',         // espace vertical autour du trait
+    width: '100%',            // prend toute la largeur disponible
   },
 }));
 
@@ -40,7 +47,9 @@ export const Home = () => {
       </div>
       <SideNavbar />
       <Experiences />
-      <Line />
+      <div className={classes.lineWrapper}>
+        <Line />
+      </div>
       <Projects />
       <About />
       <Contact />

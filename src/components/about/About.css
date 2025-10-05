@@ -1,59 +1,101 @@
 .about {
-  width: 80%;
-  margin-left: 7rem;
-  margin-right: 7rem;
+  width: 40%; /* taille par défaut */
+  max-width: 600px; /* limite la largeur sur grands écrans */
+  margin: 3em auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-}
-.heading {
-  width: 30%;
-  font-size: 1.15rem;
-}
-._img {
-  margin: 10em;
-  width: 35em;
-  height: 20em;
   border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: none;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.51);
+  backdrop-filter: blur(10px);
+  padding: 1.5em;
+  transition: border-color 0.3s ease, width 0.3s ease;
 }
+
+.about:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+._img {
+  width: 220px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 0;
+  display: block;
+}
+
+.line-wrapper-cadre {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
 ._content_wrapper {
-  width: 40%;
+  text-align: center;
+  color: var(--text-color);
+  max-width: 500px;
+  margin-top: 1.2em;
 }
-.contact-btn {
-  margin-right: 20px;
-  text-decoration: none;
-  color: #464646;
+
+.about p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 1em;
 }
-.contact-btn:hover {
-  margin-right: 20px;
-  text-decoration: none;
-  background-color: #ec704c;
+
+/* Media queries pour adapter le cadre progressivement */
+@media (max-width: 1280px) {
+  .about {
+    width: 35%;
+    padding: 1.4em;
+  }
+  ._img {
+    width: 200px;
+  }
+  .line-wrapper-cadre {
+    width: 70%;
+  }
 }
+
 @media (max-width: 1024px) {
   .about {
-    margin-left: 3rem;
-    margin-right: 3rem;
+    width: 45%;
+    padding: 1.2em;
   }
   ._img {
-    margin: 2em;
+    width: 180px;
   }
-  ._content_wrapper {
-    width: 40%;
+  .line-wrapper-cadre {
+    width: 65%;
   }
 }
+
 @media (max-width: 768px) {
   .about {
-    margin-left: 4em;
-    margin-right: 4em;
-    flex-direction: column;
+    width: 70%;
+    padding: 1em;
   }
   ._img {
-    width: 15em;
-    height: 12em;
+    width: 150px;
   }
-  ._content_wrapper {
-    width: 15em;
+  .line-wrapper-cadre {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    width: 85%;
+    padding: 0.8em;
+  }
+  ._img {
+    width: 120px;
+  }
+  .line-wrapper-cadre {
+    width: 50%;
   }
 }

@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { TextDecrypt } from "../content/TextDecrypt";
 import { BsGithub } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
-import { HiOutlineDocumentText } from "react-icons/hi"; 
+import { HiOutlineDocumentText } from "react-icons/hi";
 import './Experiences.css';
 
 import A2RL from '../../assets/experiences/A2RL.png';
@@ -15,9 +15,19 @@ import A2RL_Report from './../../assets/experiences/A2RL_Rapport.pdf';
 import Gacha_Report from './../../assets/experiences/Super_Gacha_ITI_Rapport.pdf';
 
 const useStyles = makeStyles((theme) => ({
-  main: { maxWidth: '100vw', marginTop: '3em', marginBottom: 'auto' },
-  iconButton: { height: '2.5rem', width: '5rem', display: 'block' },
-  icon: { fontSize: '1.25rem' },
+  main: { 
+    maxWidth: '100vw', 
+    marginTop: '3em', 
+    marginBottom: 'auto' 
+  },
+  iconButton: { 
+    height: '2.5rem', 
+    width: '5rem', 
+    display: 'block' 
+  },
+  icon: { 
+    fontSize: '1.25rem' 
+  },
   buttonsWrapper: { 
     marginTop: theme.spacing(2), 
     marginBottom: theme.spacing(2), 
@@ -27,14 +37,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center'
   },
   seeMoreBtn: { 
-    marginTop: theme.spacing(1), 
-    cursor: 'pointer', 
-    color: theme.palette.primary.main, 
-    border: 'none', 
-    background: 'none', 
-    padding: 0, 
+    marginTop: theme.spacing(1),
+    cursor: 'pointer',
+    color: theme.palette.text.primary,
+    border: 'none',
+    background: 'none',
+    padding: 0,
     fontWeight: 'bold',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    transition: 'color 0.3s ease',
+    '&:hover': {
+      color: theme.palette.primary.main
+    }
   }
 }));
 
@@ -43,27 +57,29 @@ export const Experiences = () => {
   const [expandedIds, setExpandedIds] = useState([]);
 
   const toggleExpand = (id) => {
-    setExpandedIds(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]);
+    setExpandedIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
   };
 
   const [experiences] = useState([
     { 
       id: 1,
-      title: 'A2RL Internship - Aladin', 
+      title: 'A2RL Internship - Aladin',
       description: `Internship focused on object detection within the A2RL autonomous racing project. Developed an automatic annotation module for Autonoma Simulator datasets, then designed and trained deep learning models for object detection. Integrated the detection pipeline into the dedicated software RTMaps, and contributed to real-world testing during track trials in Abu Dhabi.`,
       alter: 'A2RL Internship - Aladin',
-      image: `${A2RL}`,
+      image: A2RL,
       ghLink: null,
       demoLink: null,
-      reportLink: A2RL_Report, 
+      reportLink: A2RL_Report,
       download: false,
     },
     { 
       id: 2,
-      title: 'RAG Project - INSA Rouen Normandie', 
+      title: 'RAG Project - INSA Rouen Normandie',
       description: `Cybersecurity project developed as part of a semester-long course at INSA Rouen Normandie. Led a team of 9 students as project manager. We built a Retrieval-Augmented Generation (RAG) system to assist CISOs in answering questions about the company's security policies. Designed the architecture, coordinated the development process, and ensured integration of AI components with the knowledge base.`,
       alter: 'Cybersecurity RAG Project - INSA Rouen Normandie',
-      image: `${Cybersecurity}`,
+      image: Cybersecurity,
       ghLink: null,
       demoLink: null,
       reportLink: null,
@@ -71,13 +87,13 @@ export const Experiences = () => {
     },
     { 
       id: 3,
-      title: 'Gacha Game - INSA Rouen Normandie', 
+      title: 'Gacha Game - INSA Rouen Normandie',
       description: `Collaborative web project developed with classmates at INSA Rouen Normandie. Built a Gacha-style game using Express.js, EJS templating, and SQLite for data storage. Designed and implemented core gameplay mechanics and the full web interface.`,
       alter: 'Gacha Game Project - INSA Rouen Normandie',
-      image: `${Gacha}`,
+      image: Gacha,
       ghLink: "https://github.com/Nafety/Gacha_ITI",
       demoLink: "https://gacha.nafety.online",
-      reportLink: Gacha_Report, 
+      reportLink: Gacha_Report,
       download: false,
     },
   ]);
@@ -94,7 +110,7 @@ export const Experiences = () => {
               </div>
               <div className="__content_wrapper">
                 <h3 className="title">
-                  <TextDecrypt text={experience.id + '. ' + experience.title} />
+                  <TextDecrypt text={`${experience.id}. ${experience.title}`} />
                 </h3>
 
                 {isExpanded && (
@@ -103,15 +119,26 @@ export const Experiences = () => {
                   </p>
                 )}
 
-                <button className={classes.seeMoreBtn} onClick={() => toggleExpand(experience.id)}>
+                <button
+                  className={classes.seeMoreBtn}
+                  onClick={() => toggleExpand(experience.id)}
+                >
                   {isExpanded ? 'Voir moins' : 'Voir plus'}
                 </button>
 
-                {/* 🔹 wrappe les boutons dans un div qui prend 100% de la largeur */}
                 <div className={`${classes.buttonsWrapper} fullWidthButtons`}>
                   {experience.ghLink && (
-                    <Link href={experience.ghLink} target="_blank" rel="noopener noreferrer" underline="none">
-                      <Tooltip title="GitHub Repository" placement="top" TransitionComponent={Zoom}>
+                    <Link
+                      href={experience.ghLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="none"
+                    >
+                      <Tooltip
+                        title="GitHub Repository"
+                        placement="top"
+                        TransitionComponent={Zoom}
+                      >
                         <IconButton className={classes.iconButton}>
                           <BsGithub className={classes.icon} />
                         </IconButton>
@@ -119,8 +146,18 @@ export const Experiences = () => {
                     </Link>
                   )}
                   {experience.demoLink && (
-                    <Link href={experience.demoLink} target="_blank" rel="noopener noreferrer" underline="none" download={experience.download}>
-                      <Tooltip title={experience.download ? "Download Link" : "Live Demo"} placement="top" TransitionComponent={Zoom}>
+                    <Link
+                      href={experience.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="none"
+                      download={experience.download}
+                    >
+                      <Tooltip
+                        title={experience.download ? "Download Link" : "Live Demo"}
+                        placement="top"
+                        TransitionComponent={Zoom}
+                      >
                         <IconButton className={classes.iconButton}>
                           <CgWebsite className={classes.icon} />
                         </IconButton>
@@ -128,8 +165,17 @@ export const Experiences = () => {
                     </Link>
                   )}
                   {experience.reportLink && (
-                    <Link href={experience.reportLink} target="_blank" rel="noopener noreferrer" underline="none">
-                      <Tooltip title="Project Report" placement="top" TransitionComponent={Zoom}>
+                    <Link
+                      href={experience.reportLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="none"
+                    >
+                      <Tooltip
+                        title="Project Report"
+                        placement="top"
+                        TransitionComponent={Zoom}
+                      >
                         <IconButton className={classes.iconButton}>
                           <HiOutlineDocumentText className={classes.icon} />
                         </IconButton>

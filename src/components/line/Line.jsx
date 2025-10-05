@@ -3,8 +3,6 @@ import './Line.css';
 
 export const Line = () => {
   return (
-    <div className="line-wrapper">
-      <div className="line"></div>
-    </div>
+    <div className="line"></div>
   );
 };
