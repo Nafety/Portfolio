@@ -113,7 +113,7 @@ export const Projects = () => {
                   className={classes.seeMoreBtn}
                   onClick={() => toggleExpand(project.id)}
                 >
-                  {isExpanded ? 'Voir moins' : 'Voir plus'}
+                  {isExpanded ? 'See less' : 'See more'}
                 </button>
 
                 <div className={classes.buttonsWrapper}>

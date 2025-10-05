@@ -8,7 +8,7 @@ import { HiOutlineDocumentText } from "react-icons/hi";
 import './Experiences.css';
 
 import A2RL from '../../assets/experiences/A2RL.png';
-import Gacha from '../../assets/experiences/Gacha.png';
+import Gacha from '../../assets/experiences/Gacha_2.png';
 import Cybersecurity from '../../assets/experiences/PIC_Cyber.png';
 
 import A2RL_Report from './../../assets/experiences/A2RL_Rapport.pdf';
@@ -123,7 +123,7 @@ export const Experiences = () => {
                   className={classes.seeMoreBtn}
                   onClick={() => toggleExpand(experience.id)}
                 >
-                  {isExpanded ? 'Voir moins' : 'Voir plus'}
+                  {isExpanded ? 'See less' : 'See more'}
                 </button>
 
                 <div className={`${classes.buttonsWrapper} fullWidthButtons`}>
