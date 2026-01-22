@@ -10,7 +10,7 @@ import './Projects.css';
 
 import Portfolio from '../../assets/projects/Portfolio.png';
 import DiscordBot from '../../assets/projects/Discord.png';
-
+import Spotemoji from '../../assets/projects/Spotemoji.png';
 const useStyles = makeStyles((theme) => ({
   main: {
     maxWidth: '100vw',
@@ -84,6 +84,18 @@ export const Projects = () => {
       ghLink: "https://github.com/Nafety/Discord-bot",
       demoLink: "https://discord.com/oauth2/authorize?client_id=1112406883278532619",
       download: true,
+    },
+    { 
+      id: 3,
+      title: 'Spot-emoji',
+      description: `Developed a dual-server Python application that performs real-time emotion detection from a live camera feed, 
+      analyzes user emotions to generate personalized and enjoyable music recommendations 
+      via an LLM, and serves a modern web interface with interactive controls and dynamic visualizations.`,
+      alter: 'Spot-emoji',
+      image: Spotemoji,
+      ghLink: "https://github.com/Nafety/Spotemoji",
+      demoLink: null,
+      download: false,
     },
   ]);
 
