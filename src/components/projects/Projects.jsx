@@ -82,8 +82,8 @@ export const Projects = () => {
       alter: 'Discord Bot',
       image: DiscordBot,
       ghLink: "https://github.com/Nafety/Discord-bot",
-      demoLink: "https://discord.com/oauth2/authorize?client_id=1112406883278532619",
-      download: true,
+      demoLink: null,
+      download: false,
     },
     { 
       id: 3,

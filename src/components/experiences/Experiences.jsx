@@ -92,7 +92,7 @@ export const Experiences = () => {
       alter: 'Gacha Game Project - INSA Rouen Normandie',
       image: Gacha,
       ghLink: "https://github.com/Nafety/Gacha_ITI",
-      demoLink: "https://gacha.nafety.online",
+      demoLink: null,
       reportLink: Gacha_Report,
       download: false,
     },
