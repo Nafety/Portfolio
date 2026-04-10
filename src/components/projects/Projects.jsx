@@ -11,6 +11,7 @@ import './Projects.css';
 import Portfolio from '../../assets/projects/Portfolio.png';
 import DiscordBot from '../../assets/projects/Discord.png';
 import Spotemoji from '../../assets/projects/Spotemoji.png';
+import Orion from '../../assets/projects/Orion.png';
 const useStyles = makeStyles((theme) => ({
   main: {
     maxWidth: '100vw',
@@ -74,6 +75,17 @@ export const Projects = () => {
     },
     { 
       id: 2,
+      title: 'Orion',
+      description: `Designed and developed an interactive 3D music visualization platform using React and WebGL, integrating the Spotify API to map user listening data in real time. 
+      Built a performant and intuitive interface with dynamic filtering and immersive UI to explore personal music ecosystems.`,
+      alter: 'Orion',
+      image: Orion,
+      ghLink: "https://github.com/Nafety/Orion",
+      demoLink: "https://orion.nafety.online",
+      download: false,
+    },
+    { 
+      id: 3,
       title: 'Discord Bot',
       description: `Created a feature-rich Discord bot including an 
       in-server economy system, tradable items with a stock-market-like 
@@ -86,7 +98,7 @@ export const Projects = () => {
       download: false,
     },
     { 
-      id: 3,
+      id: 4,
       title: 'Spot-emoji',
       description: `Developed a dual-server Python application that performs real-time emotion detection from a live camera feed, 
       analyzes user emotions to generate personalized and enjoyable music recommendations 

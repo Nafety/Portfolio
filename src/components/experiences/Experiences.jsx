@@ -10,7 +10,7 @@ import './Experiences.css';
 import A2RL from '../../assets/experiences/A2RL.png';
 import Gacha from '../../assets/experiences/Gacha_2.png';
 import Cybersecurity from '../../assets/experiences/PIC_Cyber.png';
-
+import AMP from '../../assets/experiences/AMP.png';
 import A2RL_Report from './../../assets/experiences/A2RL_Rapport.pdf';
 import Gacha_Report from './../../assets/experiences/Super_Gacha_ITI_Rapport.pdf';
 
@@ -63,8 +63,19 @@ export const Experiences = () => {
   };
 
   const [experiences] = useState([
-    { 
+      { 
       id: 1,
+      title: 'AMP - Aubay',
+      description: `Research internship focused on prompt-based musical editing using conditional diffusion models on symbolic music (MIDI). Designed a full REMI-based preprocessing pipeline with bar-aware segmentation, token masking, and multi-track handling. Trained discrete diffusion models for music generation and infilling, and developed sampling strategies enabling controllable editing from textual or structural prompts. Investigated conditioning mechanisms, dataset consistency (vocabulary, tokenization), and robustness of generation for structured musical outputs.`,
+      alter: 'Aubay Musical Playlist',
+      image: AMP,
+      ghLink: null,
+      demoLink: null,
+      reportLink: null,
+      download: false,
+    },
+    { 
+      id: 2,
       title: 'A2RL Internship - Aladin',
       description: `Internship focused on object detection within the A2RL autonomous racing project. Developed an automatic annotation module for Autonoma Simulator datasets, then designed and trained deep learning models for object detection. Integrated the detection pipeline into the dedicated software RTMaps, and contributed to real-world testing during track trials in Abu Dhabi.`,
       alter: 'A2RL Internship - Aladin',
@@ -75,7 +86,7 @@ export const Experiences = () => {
       download: false,
     },
     { 
-      id: 2,
+      id: 3,
       title: 'RAG Project - INSA Rouen Normandie',
       description: `Cybersecurity project developed as part of a semester-long course at INSA Rouen Normandie. Led a team of 9 students as project manager. We built a Retrieval-Augmented Generation (RAG) system to assist CISOs in answering questions about the company's security policies. Designed the architecture, coordinated the development process, and ensured integration of AI components with the knowledge base.`,
       alter: 'Cybersecurity RAG Project - INSA Rouen Normandie',
@@ -86,7 +97,7 @@ export const Experiences = () => {
       download: false,
     },
     { 
-      id: 3,
+      id: 4,
       title: 'Gacha Game - INSA Rouen Normandie',
       description: `Collaborative web project developed with classmates at INSA Rouen Normandie. Built a Gacha-style game using Express.js, EJS templating, and SQLite for data storage. Designed and implemented core gameplay mechanics and the full web interface.`,
       alter: 'Gacha Game Project - INSA Rouen Normandie',
