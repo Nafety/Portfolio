@@ -1,13 +1,13 @@
 {
     "basics": {
         "name": "BARSOT Thomas",
-        "label": "Informatics Student",
+        "label": "AI Engineer & Data Scientist",
         "email": "thomas.barsot@insa-rouen.fr",
         "phone": "(XXX) XXX-XXXX",
         "picture": "mt.png",
         "x_title": "Hello, I'm",
-        "job1": "Computer Engineering",
-        "job2": "Student",
+        "job1": "AI Engineer &",
+        "job2": "Data Scientist",
         "description": "Hello! I'm Thomas !", 
         "summary": "based in Rouen, France.",
         "keywords": "personal,website,portfolio,webdev,machine,thomas,sciences,developer,react,github,linkedin",
