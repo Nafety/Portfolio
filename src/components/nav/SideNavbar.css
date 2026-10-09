@@ -1,15 +1,19 @@
+/* Barre de navigation verticale : son centre est placé à mi-hauteur de l'écran,
+   puis elle est tournée autour de ce centre (centrée quelle que soit la taille d'écran). */
 nav {
   position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 5.6rem;
   display: flex;
   flex-direction: row-reverse;
-  transform: rotate(-90deg) translate3d(-50%,0,0);
-  top: 15%;
-  left: -8rem;
+  gap: 20px;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(-90deg);
 }
 
 /* Style des liens */
 nav a {
-  margin-right: 20px;
   text-decoration: none;
   color: #575757;
 }
@@ -20,11 +24,13 @@ nav a.active {
   color: #ec704c;
 }
 
-/* Ajustement sur mobile */
+/* Ajustement sur mobile : collée au bord, un peu plus compacte */
 @media (max-width: 768px) {
   nav {
-    top: 20%;              /* Ajuste si nécessaire */
-    left: -11.5rem;           /* décale un peu plus à gauche */
-    transform: rotate(-90deg) translate3d(-70%, 0, 0);
+    left: 1.1rem;
+    gap: 14px;
+  }
+  nav a .MuiTypography-root {
+    font-size: 0.85rem;
   }
 }

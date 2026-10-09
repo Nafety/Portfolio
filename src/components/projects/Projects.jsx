@@ -1,190 +1,86 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { Container, Link, Tooltip, IconButton, Zoom } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { TextDecrypt } from "../content/TextDecrypt";
-import { BsGithub } from "react-icons/bs";
-import { CgWebsite } from "react-icons/cg";
+import React from "react";
+import { Showcase } from "../showcase/Showcase";
 
-import './Projects.css';
+import LeLabo from '../../assets/projects/LeLabo.webp';
+import Portfolio from '../../assets/projects/Portfolio.webp';
+import DiscordBot from '../../assets/projects/Discord.webp';
+import Spotemoji from '../../assets/projects/Spotemoji.webp';
+import Orion from '../../assets/projects/Orion.webp';
 
-import Portfolio from '../../assets/projects/Portfolio.png';
-import DiscordBot from '../../assets/projects/Discord.png';
-import Spotemoji from '../../assets/projects/Spotemoji.png';
-import Orion from '../../assets/projects/Orion.png';
-const useStyles = makeStyles((theme) => ({
-  main: {
-    maxWidth: '100vw',
-    marginTop: '3em',
-    marginBottom: 'auto',
-  },
-  iconButton: {
-    height: '2.5rem',
-    width: '5rem',
-    display: 'block',
-  },
-  icon: {
-    fontSize: '1.25rem',
-  },
-  buttonsWrapper: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    display: 'flex',
-    gap: theme.spacing(2),
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  },
-  seeMoreBtn: { 
-    marginTop: theme.spacing(1),
-    cursor: 'pointer',
-    color: theme.palette.text.primary, // 🟢 couleur dépend du thème (clair/sombre)
-    border: 'none',
-    background: 'none',
-    padding: 0,
-    fontWeight: 'bold',
-    alignSelf: 'center',
-    transition: 'color 0.3s ease',
-    '&:hover': {
-      color: theme.palette.primary.main, // 🟢 passe à la couleur principale du thème
-    },
-  },
-}));
-
-export const Projects = () => {
-  const classes = useStyles();
-  const [expandedIds, setExpandedIds] = useState([]);
-
-  const toggleExpand = (id) => {
-    setExpandedIds((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
-  };
-
-  const [projects] = useState([
-    { 
-      id: 1,
-      title: 'Portfolio Website',
-      description: `Designed and developed a modern portfolio website 
-      using Vite and ReactJS, with smooth animations and 
+const projects = [
+  {
+    id: 1,
+    title: 'Portfolio Website',
+    tagline: 'This website: a fast, animated portfolio built with React and Vite.',
+    tags: ['React', 'Vite', 'Three.js'],
+    description: `Designed and developed a modern portfolio website
+      using Vite and ReactJS, with smooth animations and
       optimized performance to showcase projects and experiences.`,
-      alter: 'Portfolio Website',
-      image: Portfolio,
-      ghLink: "https://github.com/Nafety/Portfolio",
-      demoLink: "https://portfolio.nafety.online",
-      download: false,
-    },
-    { 
-      id: 2,
-      title: 'Orion',
-      description: `Designed and developed an interactive 3D music visualization platform using React and WebGL, integrating the Spotify API to map user listening data in real time. 
+    alter: 'Portfolio Website',
+    image: Portfolio,
+    ghLink: "https://github.com/Nafety/Portfolio",
+    demoLink: "https://portfolio.nafety.online",
+    download: false,
+  },
+  {
+    id: 2,
+    title: 'Orion',
+    tagline: 'Your Spotify listening history as an interactive 3D universe.',
+    tags: ['React', 'WebGL', 'Spotify API'],
+    description: `Designed and developed an interactive 3D music visualization platform using React and WebGL, integrating the Spotify API to map user listening data in real time.
       Built a performant and intuitive interface with dynamic filtering and immersive UI to explore personal music ecosystems.`,
-      alter: 'Orion',
-      image: Orion,
-      ghLink: "https://github.com/Nafety/Orion",
-      demoLink: "https://orion.nafety.online",
-      download: false,
-    },
-    { 
-      id: 3,
-      title: 'Discord Bot',
-      description: `Created a feature-rich Discord bot including an 
-      in-server economy system, tradable items with a stock-market-like 
-      value, leaderboards, music playback, and entertainment commands 
-      for community engagement.`,
-      alter: 'Discord Bot',
-      image: DiscordBot,
-      ghLink: "https://github.com/Nafety/Discord-bot",
-      demoLink: null,
-      download: false,
-    },
-    { 
-      id: 4,
-      title: 'Spot-emoji',
-      description: `Developed a dual-server Python application that performs real-time emotion detection from a live camera feed, 
-      analyzes user emotions to generate personalized and enjoyable music recommendations 
+    alter: 'Orion',
+    image: Orion,
+    ghLink: "https://github.com/Nafety/Orion",
+    demoLink: "https://orion.nafety.online",
+    download: false,
+  },
+  {
+    id: 3,
+    title: 'Le Labo',
+    tagline: 'A 3D old-fashioned and magical science lab to explore, full of general-knowledge games.',
+    tags: ['Three.js', 'TypeScript', 'WebRTC', 'Wikidata'],
+    description: `Built a first-person 3D browser game with Three.js and TypeScript: a cluttered,
+      old-fashioned science lab mixed with magic, where each workshop is a different general-knowledge
+      game (spinning globe, telescope, fact-checking desk, timeline clock, cipher chest…). Questions are
+      pulled live from Wikipedia and Wikidata so they rarely repeat, up to 4 players can join through a
+      magic portal (WebRTC peer-to-peer) with shared scores and a leaderboard, and a multi-step puzzle
+      hidden in the scenery opens a secret passage to a treasure room.`,
+    alter: 'Le Labo, a 3D science lab with a globe, a library, a telescope and a magic portal',
+    image: LeLabo,
+    ghLink: "https://github.com/Nafety/lab",
+    demoLink: "https://lab.nafety.online",
+    download: false,
+  },
+  {
+    id: 4,
+    title: 'Spot-emoji',
+    tagline: 'Music recommendations from the emotions read on your face, live.',
+    tags: ['Python', 'Computer vision', 'LLM'],
+    description: `Developed a dual-server Python application that performs real-time emotion detection from a live camera feed,
+      analyzes user emotions to generate personalized and enjoyable music recommendations
       via an LLM, and serves a modern web interface with interactive controls and dynamic visualizations.`,
-      alter: 'Spot-emoji',
-      image: Spotemoji,
-      ghLink: "https://github.com/Nafety/Spotemoji",
-      demoLink: null,
-      download: false,
-    },
-  ]);
+    alter: 'Spot-emoji',
+    image: Spotemoji,
+    ghLink: "https://github.com/Nafety/Spotemoji",
+    demoLink: null,
+    download: false,
+  },
+  {
+    id: 5,
+    title: 'Discord Bot',
+    tagline: 'A community bot with an in-server economy, a stock-market of items and music.',
+    tags: ['Discord API', 'Economy system', 'Music'],
+    description: `Created a feature-rich Discord bot including an
+      in-server economy system, tradable items with a stock-market-like
+      value, leaderboards, music playback, and entertainment commands
+      for community engagement.`,
+    alter: 'Discord Bot',
+    image: DiscordBot,
+    ghLink: "https://github.com/Nafety/Discord-bot",
+    demoLink: null,
+    download: false,
+  },
+];
 
-  return (
-    <section id="projects">
-      <Container component="main" className={classes.main} maxWidth="md">
-        {projects.map((project) => {
-          const isExpanded = expandedIds.includes(project.id);
-
-          return (
-            <div className="project" key={project.id}>
-              <div className="__img_wrapper">
-                <img src={project.image} alt={project.alter} />
-              </div>
-              <div className="__content_wrapper">
-                <h3 className="title">
-                  <TextDecrypt text={`${project.id}. ${project.title}`} />
-                </h3>
-
-                {isExpanded && (
-                  <p className="description expanded">
-                    {project.description}
-                  </p>
-                )}
-
-                <button
-                  className={classes.seeMoreBtn}
-                  onClick={() => toggleExpand(project.id)}
-                >
-                  {isExpanded ? 'See less' : 'See more'}
-                </button>
-
-                <div className={classes.buttonsWrapper}>
-                  {project.ghLink && (
-                    <Link
-                      href={project.ghLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      underline="none"
-                    >
-                      <Tooltip
-                        title="GitHub Repository"
-                        placement="top"
-                        TransitionComponent={Zoom}
-                      >
-                        <IconButton className={classes.iconButton}>
-                          <BsGithub className={classes.icon} />
-                        </IconButton>
-                      </Tooltip>
-                    </Link>
-                  )}
-
-                  {project.demoLink && (
-                    <Link
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      underline="none"
-                      download={project.download}
-                    >
-                      <Tooltip
-                        title={project.download ? "Download Link" : "Live Demo"}
-                        placement="top"
-                        TransitionComponent={Zoom}
-                      >
-                        <IconButton className={classes.iconButton}>
-                          <CgWebsite className={classes.icon} />
-                        </IconButton>
-                      </Tooltip>
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </Container>
-    </section>
-  );
-};
+export const Projects = () => <Showcase id="projects" items={projects} />;

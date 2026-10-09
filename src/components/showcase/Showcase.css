@@ -1,0 +1,176 @@
+/* Projets et expériences : capture dans un cadre de navigateur + fiche, en alternance. */
+
+.sc-item {
+  /* de la place à gauche pour la navigation verticale, à droite pour les icônes */
+  width: min(1100px, calc(100% - 280px));
+  margin: 5rem auto;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.sc-item.sc-reverse {
+  grid-template-columns: 1fr 1.25fr;
+}
+
+.sc-item.sc-reverse .sc-frame {
+  order: 2;
+}
+
+/* --- Le cadre « fenêtre de navigateur » --- */
+.sc-frame {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #1c1c1e;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.55), 0 10px 20px -10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.sc-frame:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 70px -25px rgba(0, 0, 0, 0.6), 0 14px 24px -10px rgba(0, 0, 0, 0.35);
+}
+
+.sc-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  padding: 0 12px;
+  background: #2a2a2d;
+}
+
+.sc-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f57;
+  flex: none;
+}
+
+.sc-dot:nth-child(2) {
+  background: #febc2e;
+}
+
+.sc-dot:nth-child(3) {
+  background: #28c840;
+}
+
+.sc-url {
+  flex: 1;
+  margin: 0 18px 0 10px;
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.55);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sc-shot {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.sc-shot > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.sc-frame:hover .sc-shot > img {
+  transform: scale(1.04);
+}
+
+/* --- La fiche --- */
+.sc-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  text-align: left;
+}
+
+.sc-reverse .sc-card {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.sc-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.sc-tagline {
+  margin: 0;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.sc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sc-reverse .sc-tags {
+  justify-content: flex-end;
+}
+
+.sc-tags > li {
+  padding: 0.2rem 0.65rem;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.sc-description {
+  display: none;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.sc-description.expanded {
+  display: block;
+}
+
+.sc-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+
+/* --- Écrans étroits : capture au-dessus, fiche en dessous --- */
+@media (max-width: 960px) {
+  .sc-item,
+  .sc-item.sc-reverse {
+    width: calc(100% - 5rem); /* la barre de navigation reste dégagée à gauche */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 3.5rem auto;
+  }
+  .sc-item.sc-reverse .sc-frame {
+    order: 0;
+  }
+  .sc-reverse .sc-card {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .sc-reverse .sc-tags {
+    justify-content: flex-start;
+  }
+}
