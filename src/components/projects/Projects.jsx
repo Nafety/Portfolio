@@ -73,12 +73,6 @@ const others = [
     demoLink: "https://lab.nafety.online",
   },
   {
-    title: 'Snake Royale',
-    tagline: 'A real-time 1v1 snake game in the browser, with waiting rooms and custom maps.',
-    tags: ['Phaser', 'Node.js', 'Socket.IO', 'React'],
-    ghLink: "https://github.com/Nafety/snake-royale",
-  },
-  {
     title: 'Spot-emoji',
     tagline: 'Music recommendations from the emotions read on your face, live.',
     tags: ['Python', 'Computer vision', 'LLM'],
