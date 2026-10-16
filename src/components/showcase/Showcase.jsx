@@ -123,7 +123,7 @@ export const Showcase = ({ id, items }) => {
                   {item.demoLink && (
                     <LinkButton
                       href={item.demoLink}
-                      title={item.download ? "Download Link" : "Live Demo"}
+                      title={item.demoTitle || (item.download ? "Download Link" : "Live Demo")}
                       download={item.download}
                       className={classes.iconButton}
                     >
